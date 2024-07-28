@@ -15,7 +15,7 @@ public interface MemberRepository extends JpaRepository<Member, Integer> {
     Member save(Member member);
 
     // UserId 중복 확인
-//    boolean existsByUserId(String userId);
+    boolean existsByUserId(String userId);
 
     Member findByUserId(String userId);
 

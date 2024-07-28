@@ -13,6 +13,7 @@ public class LoginService {
 
 //    private Member member;
 
+
     public boolean login(String userId, String password) {
 
         Member member = memberRepository.findByUserId(userId);
@@ -21,7 +22,7 @@ public class LoginService {
             System.out.println("DB에서 찾은 회원: " + member.getUserId());
             return member.getPassword().equals(password);
         }
-        System.out.println("회원 정보가 없습니다.");
+
         return false;
     }
 

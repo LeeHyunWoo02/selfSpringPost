@@ -20,7 +20,7 @@ public class JoinController {
 
 
     // 회원가입 페이지 로딩
-    @GetMapping("/home/join/")
+    @GetMapping("/home/join")
     public String showJoinForm(){
 
         return "join";

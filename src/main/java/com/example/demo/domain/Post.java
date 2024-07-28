@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -30,10 +32,20 @@ public class Post {
     private String nickname;
 
     @Column(name="createDate")
-    private String createDate;
+    private LocalDateTime createDate;
 
     @Column(name="updateDate")
-    private String updateDate;
+    private LocalDateTime updateDate;
 
+    @PrePersist
+    protected void onCreate(){
+        createDate = LocalDateTime.now();
+        updateDate = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate(){
+        updateDate = LocalDateTime.now();
+    }
 
 }

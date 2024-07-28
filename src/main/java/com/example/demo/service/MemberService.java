@@ -17,10 +17,11 @@ public class MemberService {
     public void save(Member member) {
 
         //db에 이미 동일한 userID를 가진 회원이 존재하는지?
-//        boolean isUser = memberRepository.existsByUserId(member.getUserId());
-//        if(isUser){
-//            throw new IllegalArgumentException("이미 존재하는 사용자 ID입니다.");
-//        }
+        boolean isUser = memberRepository.existsByUserId(member.getUserId());
+        if(isUser){
+            throw new IllegalArgumentException("이미 존재하는 사용자 ID입니다.");
+        }
+
         member.setRole("ROLE_USER");
         memberRepository.save(member);
     }
